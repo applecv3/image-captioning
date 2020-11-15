@@ -20,7 +20,7 @@ class Processor:
 
         self.process()
 
-    def add_punctuation(self, sentence):
+    def remove(self, sentence):
 
         striped_sentence = sentence.strip().lower()
         processed_sentence = re.sub("[(,),;]", '', striped_sentence)
@@ -51,7 +51,7 @@ class Processor:
 
         for ann in annotations:
 
-            completed_caption = self.add_punctuation(ann['caption'])
+            completed_caption = self.remove(ann['caption'])
             words = word_tokenize(completed_caption)
 
             if len(words) < self.config.max_length:
