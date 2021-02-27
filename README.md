@@ -33,3 +33,5 @@ Its performance was measured on Beam Search with k=3 and here are some generated
 # References
 [1] Attention Is All You Need
 https://arxiv.org/abs/1706.03762
+[2] EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks
+https://arxiv.org/abs/1905.11946
