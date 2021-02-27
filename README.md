@@ -16,6 +16,8 @@ Second, train the model through train.py
 
 Third, freeze and evaluate the model with Beam Search algorithm excuting freeze.py and test.py
 
-Last, the images with caption implementing inference.py
+Last, get the images with captions implementing inference.py
 
 # Examples
+Its performance was measured on Beam Search with k=3 and here are some inferenced examples by the trained model.
+
