@@ -6,9 +6,7 @@ As for EfficientNet, I slightly modified this tensorflow implementation code: ht
 
 
 Here's the architecture. It's pretty simple and intuitive.
-
-![plot](./picture/Screenshot from 2021-02-27 00-12-26.png?)
-![Image of Yaktocat](https://github.com/applecv3/image-captioning/picture/Screenshot from 2021-02-27 00-12-26.png)
+![Image of Yaktocat](https://github.com/applecv3/image-captioning/blob/master/pictures/Screenshot%20from%202021-02-27%2000-12-26.png)
 
 
 
