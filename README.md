@@ -19,5 +19,17 @@ Third, freeze and evaluate the model with Beam Search algorithm excuting freeze.
 Last, get the images with captions implementing inference.py
 
 # Examples
-Its performance was measured on Beam Search with k=3 and here are some inferenced examples by the trained model.
+Its performance was measured on Beam Search with k=3 and here are some generated examples by the trained model.
 
+![Image of Yaktocat](https://github.com/applecv3/image-captioning/blob/master/pictures/Screenshot%20from%202021-02-27%2005-13-09.png)
+
+![Image of Yaktocat](https://github.com/applecv3/image-captioning/blob/master/pictures/example1.jpg)
+![Image of Yaktocat](https://github.com/applecv3/image-captioning/blob/master/pictures/example2.jpg)
+![Image of Yaktocat](https://github.com/applecv3/image-captioning/blob/master/pictures/example3.jpg)
+![Image of Yaktocat](https://github.com/applecv3/image-captioning/blob/master/pictures/example4.jpg)
+![Image of Yaktocat](https://github.com/applecv3/image-captioning/blob/master/pictures/example5.jpg)
+![Image of Yaktocat](https://github.com/applecv3/image-captioning/blob/master/pictures/example6.jpg)
+
+# References
+[1] Attention Is All You Need
+https://arxiv.org/abs/1706.03762
