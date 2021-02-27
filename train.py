@@ -25,7 +25,7 @@ tf.flags.DEFINE_float('decay_rate', '0.95', 'initial learning rate')
 tf.flags.DEFINE_float('ema_rate', '0.99', 'initial learning rate')
 
 
-def build_input(params):
+def get_input(params):
 
     train_dataset = dataloader.Dataset(flags.train, flags.batch_train, flags.n_shards, params, True)
     eval_dataset = dataloader.Dataset(flags.eval, flags.batch_eval, flags.n_shards, params)
@@ -60,7 +60,7 @@ def build_model(image, caption_input, params, is_training):
     return logit
 
 
-def build_accuracy(logit, label, mask):
+def get_accuracy(logit, label, mask):
 
     prediction = tf.argmax(logit, axis=-1)
     correct = tf.cast(tf.equal(prediction, label), tf.float32) * mask
@@ -69,7 +69,7 @@ def build_accuracy(logit, label, mask):
     return accuracy
 
 
-def build_loss(logit, label, mask, params):
+def get_loss(logit, label, mask, params):
 
     label = tf.one_hot(label, params.vocab_size, axis=-1)
     entropy = tf.losses.softmax_cross_entropy(
@@ -107,20 +107,20 @@ def main(argv):
 
     params = config.Config()
     #  get all the inputs
-    image, caption_input, caption_label, mask, is_training = build_input(params)
+    image, caption_input, caption_label, mask, is_training = get_input(params)
     #  build model
     logit = build_model(image, caption_input, params, is_training)
-    #  build accuracy
-    accuracy = build_accuracy(logit, caption_label, mask)
-    #  build loss
-    loss = build_loss(logit, caption_label, mask, params)
-    #  build optimizer
+    #  get accuracy
+    accuracy = get_accuracy(logit, caption_label, mask)
+    #  get loss
+    loss = get_loss(logit, caption_label, mask, params)
+    #  get optimizer
     optimizer, global_step, ema_restorer = build_optimizer(loss)
 
     gvars = tf.global_variables()
     vars_to_restore = []
 
-    for var in gvars:  # restore imagenet pretrained EfficientNet weights
+    for var in gvars:  # restore Imagenet pretrained EfficientNet weights
         vname = var.name.split(':')[0]
         try:
             var_to_restore = tf.train.load_variable(flags.ckpt, vname)
